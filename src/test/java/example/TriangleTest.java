@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class TriangleTest {
 
@@ -30,5 +31,29 @@ public class TriangleTest {
         Triangle triangle = new Triangle(3,4,5);
 
         assertEquals(TriangleKind.SCALENE, triangle.getKind());
+    }
+
+    @Test
+    public void InvalidTriangleThrowErrorViolatesTriangleInequality() throws  TriangleException{
+        assertThrows(TriangleException.class,
+                () -> {
+                    Triangle triangle = new Triangle(1,2,3);
+                });
+    }
+
+    @Test
+    public void InvalidTriangleThrowErrorAllSidesEqualZero() throws  TriangleException{
+        assertThrows(TriangleException.class,
+                () -> {
+                    Triangle triangle = new Triangle(0,0,0);
+                });
+    }
+
+    @Test
+    public void InvalidTriangleThrowErrorImpossibleSides() throws TriangleException{
+        assertThrows(TriangleException.class,
+                () -> {
+                    Triangle triangle = new Triangle(-15,-15,-15);
+                });
     }
 }

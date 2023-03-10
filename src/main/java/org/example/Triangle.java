@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set; 
  
 public class Triangle { 
- 
+
     private double side1; 
     private double side2; 
     private double side3; 
@@ -18,34 +18,34 @@ public class Triangle {
             throw new TriangleException(); 
         } 
     } 
- 
+
     public TriangleKind getKind() { 
         int uniqueSides = getNumberOfUniqueSides(); 
- 
+
         if (uniqueSides == 1) { 
             return TriangleKind.EQUILATERAL; 
         } 
- 
+
         if (uniqueSides == 2) { 
             return TriangleKind.ISOSCELES; 
         } 
- 
+
         return TriangleKind.SCALENE; 
     } 
- 
+
     private boolean allSidesAreZero() { 
         return side1 == 0 && side2 == 0 && side3 == 0; 
     } 
- 
+
     private boolean hasImpossibleSides() { 
         return side1 < 0 || side2 < 0 || side3 < 0; 
     } 
- 
+
     private boolean violatesTriangleInequality() { 
         return side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side1; 
     } 
- 
- 
+
+
     public int getNumberOfUniqueSides() { 
         Set<Double> sides = new HashSet<>(); 
  
