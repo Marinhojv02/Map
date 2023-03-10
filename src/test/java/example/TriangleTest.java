@@ -56,4 +56,29 @@ public class TriangleTest {
                     Triangle triangle = new Triangle(-15,-15,-15);
                 });
     }
+
+    @Test
+    public void EquilateralTriangleHasOneUniqueSide() throws TriangleException{
+        Triangle triangle = new Triangle(2,2,2);
+        int uniqueSides = 1;
+
+        assertEquals(uniqueSides, triangle.getNumberOfUniqueSides());
+    }
+
+    @Test
+    public void IsoscelesTriangleHasOneUniqueSides() throws TriangleException{
+        Triangle triangle = new Triangle(1,2,2);
+        int uniqueSides = 2;
+
+        assertEquals(uniqueSides, triangle.getNumberOfUniqueSides());
+    }
+
+    @Test
+    public void ScaleneTriangleHasThreeUniqueSides() throws TriangleException{
+        Triangle triangle = new Triangle(3,4,5);
+        int uniqueSides = 3;
+
+        assertEquals(uniqueSides, triangle.getNumberOfUniqueSides());
+    }
+
 }
